@@ -23,11 +23,14 @@ class FIFOCache(BaseCaching):
     and is a caching system"""
 
     def __init__(self):
-        """Initializing the BaseCaching"""
+        """Initialize the FIFOCache
+        with an empty order list."""
         super().__init__()
         self.order = []
 
     def put(self, key, item):
+        """Assign item to self.cache_data with key
+        following FIFO rules."""
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.order.remove(key)
